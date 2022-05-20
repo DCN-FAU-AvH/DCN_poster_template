@@ -1,0 +1,132 @@
+\ProvidesPackage{beamerthemeDCNposter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<presentation>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%% COLOR DEFINITION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define the theme colors
+\usepackage{xcolor}
+\definecolor{dcnorange}{RGB}{255, 102, 0}
+\definecolor{dcngreen}{RGB}{38, 159, 120}
+\definecolor{dcnblue}{RGB}{11, 62, 117}
+\definecolor{dcngrey}{RGB}{102, 102, 102}
+
+\setbeamercolor*{block title}{fg=dcngrey,bg=white}
+\setbeamerfont{block title}{size=\large}
+\setbeamercolor*{block body}{fg=black,bg=white}
+\setbeamerfont{block body}{size=\normalsize}
+
+\setbeamercolor{structure}{fg=dcnblue}  % color of the itemization symbols, etc. 
+
+%%%%%%%%%%%% BLOCK DEFINITION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% used for main text and titles with green bars
+
+\setbeamertemplate{block begin}{
+  \vskip.5ex
+  \begin{beamercolorbox}{block title}%
+    \usebeamerfont*{block title}{\Large \insertblocktitle}
+    {\color{dcngreen} \rule[0.7\baselineskip]{\textwidth}{0.2\baselineskip}}
+    \vskip -0.8\baselineskip
+  \end{beamercolorbox}%
+%  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+%  \usebeamerfont{block body}%
+%  \begin{beamercolorbox}{block body}%
+  }
+  \setbeamertemplate{block end}{
+  %\end{beamercolorbox}
+  \vspace{0.8cm}
+}
+
+%%%%%%%%%%%% HEADLINE DEFINITION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% contains top logos and orange title bar
+
+\def\titleincaps{\MakeUppercase{\inserttitle}} % 
+
+\setbeamertemplate{headline}{
+  \leavevmode
+
+  \begin{beamercolorbox}[wd=\paperwidth]{headline}
+    
+    % first line with logos
+    \vspace{1.5cm}
+    \begin{columns}[T]
+     \begin{column}{.3\paperwidth}
+     \centering
+     \vskip4ex
+     \includegraphics[height=0.1\paperwidth]{art/fau-logo-nat-en}
+     \vspace{1pt}
+     \end{column}
+    \begin{column}{0.2\paperwidth}
+    %insert another top logo if needed
+    \end{column}
+    \begin{column}{.3\paperwidth}
+     \centering
+     \vskip4ex
+     \includegraphics[height=0.1\paperwidth]{art/DCN-logo}
+     \vspace{1pt}
+     \end{column}
+     \end{columns}
+     \vspace{0.25cm}
+     
+     % second line with title     
+     \begin{columns}
+      \begin{column}{\paperwidth}
+      \colorbox{dcnorange}{
+        \begin{minipage}{\textwidth}
+        \centering
+        \vspace{1cm}
+        \fontsize{78}{95}\selectfont
+        \textcolor{white}{\bf \fontsize{78}{95}\selectfont \titleincaps }
+        \vspace{1cm}
+        \end{minipage}
+        }
+      \end{column}
+     \end{columns}
+     
+     % third line with authors
+     % TODO
+  \end{beamercolorbox}
+
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+    \rule{0pt}{2pt}
+  \end{beamercolorbox}
+  
+}
+
+%%%%%%%%%%%% FOOTLINE DEFINITION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% contains bottom logos
+\setbeamertemplate{footline}{
+  \begin{columns}[b]
+    \hspace{0.8cm}
+    \begin{column}{0.08\textwidth}
+      \includegraphics[width=\textwidth]{art/qr-code}
+      \vspace{0.8cm}
+     \end{column}
+     \hspace{-3.5cm}
+     \begin{column}{0.16\textwidth}
+    \textcolor{dcnorange}{\normalsize https://dcn.nat.fau.eu/} \hspace{1cm} {\normalsize \two@digits{\the\month}/\the\year}
+    \vspace{1.5cm}
+    \end{column}
+    \begin{column}{0.09\textwidth}
+      % Insert more bottom logos here      
+      
+      \vspace{1.2cm}
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      % \includegraphics[width=\textwidth]{art/FAU_DMM_Logo_rgb_10cm}
+      \includegraphics[width=\textwidth]{art/DDS_blau}
+      \vspace{1.2cm}
+    \end{column}
+    \hspace{-2cm}
+    \begin{column}{0.2\textwidth}
+      \includegraphics[width=\textwidth]{art/logo-avh-orig}
+      \vspace{-0.23cm}
+    \end{column}
+    \hspace{0.3cm}
+  \end{columns}
+  \vspace{0cm}
+}
+
+
+\setbeamertemplate{navigation symbols}{}  % no navigation on a poster
