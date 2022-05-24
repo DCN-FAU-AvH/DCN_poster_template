@@ -11,4 +11,4 @@ You will need to edit this file if you want to add more logos in the header or f
 The folder [art/](art) contains the logos required to create the poster (e.g., DCN, AvH, etc.). 
 
 The folder [Figures/](Figures) contains the figures specific poster. 
-You need these figures to fun the example I provided, but you will need 
+You need these figures to for the example I provided, but can delete them when you create your own poster. 
